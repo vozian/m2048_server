@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const StatisticsSchema = mongoose.Schema({
     bestMultiPlayerScore: Number,
     bestSinglePlayerScore: Number,
-    gamesPlayed: Number,
-    gamesWon: Number,
+    gamesPlayed: Number
 });
 
 const UserSchema = mongoose.Schema({

@@ -23,4 +23,16 @@ router.post('/register', async (req, res, next) => {
     }
 });
 
+router.post('/update', async (req, res, next) => {
+    let users = await UserModel.find({"username": req.body.username});
+    if(users.length === 0 || users[0].password !== req.body.password){
+        res.status(400)
+        res.send()
+    } else {
+        users[0].statistics =  req.body.statistics;
+        await users[0].save();
+        res.send(users[0]);
+    }
+});
+
 module.exports = router;
